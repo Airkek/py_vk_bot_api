@@ -9,6 +9,8 @@ Python vk.com API wrapper
 Установка
 -------
 
+Windows: качаем https://github.com/Airkek/py_vk_bot_api/releases(послений релиз) и запускаем `install.bat`
+
 ```console
 pip install requests
 git clone https://github.com/Airkek/py_vk_bot_api/
