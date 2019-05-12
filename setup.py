@@ -1,7 +1,7 @@
 from distutils.core import setup
 
-setup(name='Distutils',
-      version='0.2',
+setup(name='py_vk_bot_api',
+      version='0.5',
       description='Python vk.com API wrapper',
       author='Airkek',
       author_email='antonyblack05@gmail.com',
