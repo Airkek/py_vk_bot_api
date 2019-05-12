@@ -14,7 +14,9 @@ class upload(object):
         'peer_id': peer_id,
         'type': t
         })
-        url = url['upload_url'] if not "error" in url else raise mySword(url['error_msg'])
+        if "error" in url:
+            raise mySword(url['error']['error_msg'])
+        url = url['upload_url']
 
         files = [('file', (filename, open(filename, 'rb')))]
         res = post(url, files=files).json()['file']
@@ -26,7 +28,9 @@ class upload(object):
 
     def document(self, group_id=None):
         url = self.vk("docs.getMessagesUploadServer", {'group_id': group_id})
-        url = url['upload_url'] if not "error" in url else raise mySword(url['error_msg'])
+        if "error" in url:
+            raise mySword(url['error']['error_msg'])
+        url = url['upload_url']
 
         files = [('file', (filename, open(filename, 'rb')))]
         res = post(url, files=files).json()['file']
@@ -35,7 +39,9 @@ class upload(object):
 
     def messagePhoto(self, filename, peer_id):
         url = self.vk("docs.getMessagesUploadServer", {'peer_id': peer_id})
-        url = url['upload_url'] if not "error" in url else raise mySword(url['error_msg'])
+        if "error" in url:
+            raise mySword(url['error']['error_msg'])
+        url = url['upload_url']
 
         files = [('file', (filename, open(filename, 'rb')))]
         res = post(url, files=files).json()['file']
@@ -47,11 +53,13 @@ class upload(object):
         })
 
     def albumPhoto(self, filename, album_id, group_id=None):
-        res = self.vk("photos.getUploadServer", {
+        url = self.vk("photos.getUploadServer", {
         'group_id': group_id,
         'album_id': album_id
         })
-        url = res['upload_url'] if not "error" in res else raise mySword(url['error_msg'])
+        if "error" in url:
+            raise mySword(url['error']['error_msg'])
+        url = url['upload_url']
 
         files = [('file', (filename, open(filename, 'rb')))]
         res = post(url, files=files).json()
@@ -65,8 +73,10 @@ class upload(object):
         })
 
     def wallPhoto(self, filename, group_id=None, caption=None):
-        res = self.vk("photos.getUploadServer", {'group_id': group_id})
-        url = res['upload_url'] if not "error" in res else raise mySword(url['error_msg'])
+        url = self.vk("photos.getUploadServer", {'group_id': group_id})
+        if "error" in url:
+            raise mySword(url['error']['error_msg'])
+        url = url['upload_url']
 
         files = [('file', (filename, open(filename, 'rb')))]
         upl = post(url, files=files).json()
