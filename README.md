@@ -1,27 +1,24 @@
-Python vk.com API wrapper
-=========================
+#Python vk.com API wrapper
 
-Это модуль для использования vk.com Api в Python (тестировалось только на 3.7.2)
+Модуль для использования vk.com API в Python (тестировалось только на 3.7.2)
 
-Итак, начнём
-==========
+#Установка
 
-Установка
--------
+###Windows:
 
-**Windows**: качаем [послений релиз](https://github.com/Airkek/py_vk_bot_api/releases) и запускаем `install.bat`
+* Качаем [послений релиз](https://github.com/Airkek/py_vk_bot_api/releases)
+* Запускаем `install.bat`
 
-**Linux**:
+###Linux:
 
 ```console
-pip install requests
 git clone https://github.com/Airkek/py_vk_bot_api/
 cd py_vk_bot_api
-python setup.py install
+pip3 install -r requirements.txt
+python3 setup.py install
 ```
 
-Исользование Api методов
------
+#Исользование
 
 ```python
 import py_vk_bot_api
@@ -33,20 +30,6 @@ api.call("users.get", {"user_ids": 1})
 #output: [{'first_name': 'Pavel', 'last_name': 'Durov', 'id': 1}]
 ```
 
-Полная документация по методам Api - https://vk.com/dev/methods
+#[Примеры](https://github.com/Airkek/py_vk_bot_api/tree/master/examples)
 
-Использование Bots LongPoll Api
------
-
-```python
-bot = py_vk_bot_api.botsLongPoll(session)
-
-@bot.on
-def message_new(msg):
-    if msg['text'] == "Hi": #если текст сообщения равен "Hi"
-        msg['send']("Hello!") #отвечаем "Hello!"
-
-bot.startPolling() #начинаем получать события с LongPoll
-
-bot.stopPolling() #прекращаем получать события с LongPoll
-```
+##Полная документация по методам vk.com API - https://vk.com/dev/methods
