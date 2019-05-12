@@ -1,8 +1,8 @@
-#Python vk.com API wrapper
+# Python vk.com API wrapper
 
 Модуль для использования vk.com API в Python (тестировалось только на 3.7.2)
 
-#Возможности
+# Возможности
 
 - [x] Использование VK API
 - [x] Вход по логину и паролю
@@ -11,14 +11,14 @@
 - [ ] Загрузка фото
 - [ ] Загрузка документов
 
-#Установка
+# Установка
 
-###Windows:
+### Windows:
 
 * Качаем [послений релиз](https://github.com/Airkek/py_vk_bot_api/releases)
 * Запускаем `install.bat`
 
-###Linux:
+### Linux:
 
 ```console
 git clone https://github.com/Airkek/py_vk_bot_api/
@@ -27,7 +27,7 @@ pip3 install -r requirements.txt
 python3 setup.py install
 ```
 
-#Исользование
+# Исользование
 
 ```python
 import py_vk_bot_api
@@ -39,6 +39,6 @@ api.call("users.get", {"user_ids": 1})
 #output: [{'first_name': 'Pavel', 'last_name': 'Durov', 'id': 1}]
 ```
 
-#[Примеры](https://github.com/Airkek/py_vk_bot_api/tree/master/examples)
+# [Примеры](https://github.com/Airkek/py_vk_bot_api/tree/master/examples)
 
-##Полная документация по методам vk.com API - https://vk.com/dev/methods
+## Полная документация по методам vk.com API - https://vk.com/dev/methods
