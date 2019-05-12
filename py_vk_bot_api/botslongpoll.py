@@ -54,7 +54,7 @@ class worker(Thread):
     def run(self):
         self.func(self.funcarg)
 
-class botsLongPoll:
+class botsLongPoll(object):
     polling = {}
 
     def __init__(self, session):
