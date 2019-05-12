@@ -38,14 +38,14 @@ class upload(object):
         return self.vk('docs.save', {'file': res})
 
     def messagePhoto(self, filename, peer_id):
-        url = self.vk("docs.getMessagesUploadServer", {'peer_id': peer_id})
+        url = self.vk("photos.getMessagesUploadServer", {'peer_id': peer_id})
         if "error" in url:
             raise mySword(url['error']['error_msg'])
         url = url['upload_url']
 
         files = [('file', (filename, open(filename, 'rb')))]
-        res = post(url, files=files).json()['file']
-
+        res = post(url, files=files).json()
+        
         return self.vk("photos.saveMessagesPhoto", {
         'photo': res['photo'],
         'server': res['server'],
