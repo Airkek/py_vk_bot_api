@@ -13,17 +13,8 @@
 
 # Установка
 
-### Windows:
-
-* Качаем [послений релиз](https://github.com/Airkek/py_vk_bot_api/releases)
-* Запускаем `install.bat`
-
-### Linux:
-
 ```console
-git clone https://github.com/Airkek/py_vk_bot_api/
-cd py_vk_bot_api
-python3 setup.py install
+pip install --index-url https://test.pypi.org/simple/ py-vk-bot-api
 ```
 
 # Исользование
