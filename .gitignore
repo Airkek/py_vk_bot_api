@@ -1,3 +1,5 @@
 build/
+py_vk_bot_api.egg-info/
+dist/
 /push.bat
 test/
