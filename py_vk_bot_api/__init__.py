@@ -4,4 +4,4 @@ from .botslongpoll import botsLongPoll
 from .session import *
 
 __author__ = 'Airkek'
-__version__ = '0.5'
+__version__ = '0.6'
