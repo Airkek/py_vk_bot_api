@@ -23,7 +23,6 @@
 ```console
 git clone https://github.com/Airkek/py_vk_bot_api/
 cd py_vk_bot_api
-pip3 install -r requirements.txt
 python3 setup.py install
 ```
 
