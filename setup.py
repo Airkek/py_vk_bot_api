@@ -9,7 +9,7 @@ def packages():
 
 setuptools.setup(
     name='py_vk_bot_api',
-    version='0.6',
+    version='1.0',
     author='Airkek',
     author_email='antonyblack05@gmail.com',
     description='Python vk.com API wrapper',
