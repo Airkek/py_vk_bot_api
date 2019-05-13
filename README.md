@@ -14,7 +14,7 @@
 # Установка
 
 ```console
-pip install --index-url https://test.pypi.org/simple/ py-vk-bot-api
+pip install py-vk-bot-api
 ```
 
 # Исользование
