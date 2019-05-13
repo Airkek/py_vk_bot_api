@@ -62,7 +62,7 @@ class botsLongPoll(object):
             raise mySword("invalid session")
         self.vk = api(session)
 
-        self.group = vk.call("groups.getById")
+        self.group = self.vk.call("groups.getById")
         if "error" in self.group or len(self.group) == 0:
             raise mySword("this method is available only with group auth")
         self.group = self.group[0]
