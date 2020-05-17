@@ -17,7 +17,7 @@
 pip install py-vk-bot-api
 ```
 
-#ВНИМЕНИЕ! BotsLongPoll работает только на версии LongPoll API <5.100
+# ВНИМЕНИЕ! BotsLongPoll работает только на версии LongPoll API <5.100
 
 # Исользование
 
