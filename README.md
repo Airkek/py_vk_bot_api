@@ -1,6 +1,6 @@
 # Python vk.com API wrapper
 
-Модуль для использования vk.com API в Python (тестировалось только на 3.7.2)
+Модуль для использования vk.com API в Python 3.6+
 
 # Возможности
 
@@ -17,18 +17,14 @@
 pip install py-vk-bot-api
 ```
 
-# ВНИМЕНИЕ! BotsLongPoll работает только на версии LongPoll API <5.100
-
 # Исользование
 
 ```python
 import py_vk_bot_api
 session = py_vk_bot_api.session(access_token) #авторизация по токену
-session = py_vk_bot_api.userAuth(login, password) #авторизация по л:п
+session = py_vk_bot_api.userAuth(login, password) #авторизация по л:п, реализовано не до конца
 api = py_vk_bot_api.api(session)
-api.call("users.get", {"user_ids": 1})
-
-#output: [{'first_name': 'Pavel', 'last_name': 'Durov', 'id': 1}]
+api.call("users.get", {"user_ids": 1}) #[{'first_name': 'Pavel', 'last_name': 'Durov', 'id': 1}]
 ```
 
 # [Примеры](https://github.com/Airkek/py_vk_bot_api/tree/master/examples)

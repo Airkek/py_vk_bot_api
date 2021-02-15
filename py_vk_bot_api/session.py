@@ -1,16 +1,17 @@
-from requests import post, get, Session
-from .exceptions import *
+from .exceptions import authError
 import re
+import requests
 
 class session(object):
-    def __init__(self, token):
+    def __init__(self, token, http=None):
         self.token = token
-        if "error" in post("https://api.vk.com/method/users.get", {'access_token': self.token, 'v': '5.95', 'user_ids': 1}).json():
+
+        if "error" in requests.post("https://api.vk.com/method/users.get", {'access_token': self.token, 'v': '5.95', 'user_ids': 1}).json():
             raise authError("invalid token")
 
 def userAuth(login, password, appid=2685278, scope=1073737727):
-    s = Session()
-    s.headers.update({'User-agent': 'Huilla/5.0 (Windows NT 6.1; rv:52.0) '})
+    s = requests.Session()
+    s.headers.update({'User-agent': 'Mozilla/5.0 (py_vk_bot_api; Airkek; Python) AppleWebKit/537.36 (KHTML, like Gecko)'})
 
     res = s.get('https://vk.com/')
     val = {
@@ -44,11 +45,10 @@ def userAuth(login, password, appid=2685278, scope=1073737727):
         'scope': scope,
         'response_type': 'token',
         'revoke': '1',
-
     })
 
     if 'access_token' not in res.url:
-        #raise authError('unknown error. Please, open issue on github (Airkek/py_vk_bot_api)')
         url = re.compile(r'location\.href = "(.*?)"\+addr;').search(res.text).groups()[0]
         res = s.get(url) if url else res
-    return session(res.url.split('access_token=')[1].split('&')[0])
+
+    return session(res.url.split('access_token=')[1].split('&')[0], s)
