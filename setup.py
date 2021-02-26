@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='py_vk_bot_api',
-    version='1.2',
+    version='1.3.1',
     author='Airkek',
     author_email='',
     description='Python vk.com API wrapper',

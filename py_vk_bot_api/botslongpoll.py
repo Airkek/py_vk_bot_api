@@ -43,8 +43,8 @@ class botsLongPoll(object):
     def on(self, func):
         self.polling[func.__name__] = func
 
-    def __startPolling(self, none):
-        while self.stop:
+    def __startPolling(self):
+        while not self.stop:
             for event in self.get():
                 if event['type'] in self.polling:
                     if event['type'] == "message_new":
